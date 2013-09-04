@@ -1,0 +1,19 @@
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>item</th>
+			<th>description</th>
+			<th>price</th>
+			<th>user</th>
+		</tr>
+	</thead>
+	<% @items.each do |item| %>
+		<tr class="list_item" url="/items/<%= item.id %>">
+			<td><%= item.name %></td>
+			<td><%= item.description %></td>
+			<td><%= "$ #{item.price}" %></td>
+			<td><%= item.user_id %></td>
+		</tr>
+	<% end %>
+</table>
