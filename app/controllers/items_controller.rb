@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+	before_filter :authenticate_user!, :only => :new
 
 	def index
 		@items = Item.all(:order => "created_at DESC")

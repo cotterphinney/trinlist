@@ -20,40 +20,42 @@
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li id="nav_link" class="active"><a href="#">All</a></li>
-        <li id="nav_link"><a href="#about">Furniture</a></li>
-        <li id="nav_link"><a href="#contact">Electronics</a></li>
-        <li id="nav_link"><a href="#about">Clothes</a></li>
-        <li id="nav_link"><a href="#contact">Books</a></li>
-        <li id="nav_link"><a href="#about">Misc.</a></li>
-        <li id="nav_link"><a href="#about">Free</a></li>
+        <li class="nav_link active"><a href="#">All</a></li>
+        <li class="nav_link"><a href="#about">Furniture</a></li>
+        <li class="nav_link"><a href="#contact">Electronics</a></li>
+        <li class="nav_link"><a href="#about">Clothes</a></li>
+        <li class="nav_link"><a href="#contact">Books</a></li>
+        <li class="nav_link"><a href="#about">Misc.</a></li>
+        <li class="nav_link"><a href="#about">Free</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li id="nav_add_item"><%= link_to 'Add', new_item_path %></li>
+        <li id="nav_add_item"><%= link_to 'Add Listing', new_item_path %></li>
+        <% if current_user.present? %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %> <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="#">My Listings</a></li>
-            <li><a href="#">Account Settings</a></li>
+            <li><%= link_to 'Account Settings', edit_user_registration_path %></li>
             <li>            
-              <% if current_user.present? %>
-                <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %>
+              <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %>
               <%# user is not logged in, show signup and login links %>
-              <% else %>
-                <%= link_to 'Sign In', new_user_session_path %>
-                <%= link_to 'Register', new_user_registration_path %>
-              <% end %>
             </li>
           </ul>
         </li>
+        <% else %>
+          <li class="nav_link"><%= link_to 'Sign In', new_user_session_path %></li>
+          <li class="nav_link"><%= link_to 'Register', new_user_registration_path %></li>
+        <% end %>
       </ul>
     </div><!--/.nav-collapse -->
   </div>
 </div>
 
-<p class="notice"><%= notice %></p>
+<div class="container">
 
-<%= yield %>
+  <p class="notice"><%= notice %></p>
+  <%= yield %>
+</div>
 
 </body>
 </html>
