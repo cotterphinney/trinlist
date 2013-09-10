@@ -36,7 +36,9 @@ end
 
 gem 'devise'
 
-gem 'bootstrap-sass', '~> 2.3.2.2'
+gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
+                              :github => 'anjlab/bootstrap-rails',
+                              :branch => '3.0.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

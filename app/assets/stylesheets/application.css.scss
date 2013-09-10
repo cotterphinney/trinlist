@@ -1,0 +1,77 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require twitter/bootstrap
+ *= require_self
+ *= require_tree .
+ */
+
+
+#search_form {
+	width: 300px;
+	margin-left: 30px;
+}
+#navbar {
+	background-color: #0d528a;
+	font-weight: 300;
+	border: 0;
+}
+#navbar a {
+	color: #fff;
+}
+#nav_link:hover {
+	border-bottom: 5px solid #ffd64c;
+	height: 50px;
+}
+#navbar_button {
+	background-color: #0d528a;
+	border-color: #fff;
+}
+.navbar-default .navbar-toggle .icon-bar {
+	background-color: #fff;
+}
+#navbar_button:hover {
+	background-color: #ffd64c;
+}
+.navbar-brand {
+	font-weight: 400;
+}
+.navbar-default .navbar-nav > .active > a {
+	background-color: #463265;
+}
+.navbar-default .navbar-nav > .active > a:hover {
+	background-color: #463265;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus {
+	background-color: #463265;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover {
+	background-color: #463265;
+}
+.dropdown-menu {
+	background-color: #0d528a;
+	border: 0;
+}
+.navbar-default .navbar-nav > .dropdown > a .caret {
+	border-top-color: #fff;
+	border-bottom-color: #fff;
+}
+.navbar-default .navbar-nav > .dropdown > a:hover .caret, .navbar-default .navbar-nav > .dropdown > a:focus .caret {
+	border-top-color: #ffd64c;
+	border-bottom-color: #ffd64c;
+}
+
+td {
+	cursor: default;
+}
+.list_item:hover {
+	background-color: #0d528a;
+	color: #fff;
+}

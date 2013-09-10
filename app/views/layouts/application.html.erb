@@ -8,76 +8,46 @@
 </head>
 <body>
 
-<div class="navbar navbar-inverse">
-  <div class="navbar-inner">
-    <div class="container">
-      <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+<div id="navbar" class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button id="navbar_button" type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-      </a>
-      <%= link_to "Trinlist", root_path, :class => "brand" %>
-
-      <div class="nav-collapse collapse navbar-responsive-collapse">
-        <ul class="nav pull-left">
-
-        <form class="navbar-search" action="">
-          <input id="search_form" type="text" class="search-query span2" placeholder="Search">
-        </form>
-
-        <div id="navbar_button" class="btn-group">
-          <a href="/items/new">
-            <button class="btn btn-primary">add an item</button>
-          </a>
-        </div>
-
-      </ul>
+      </button>
+      <a class="navbar-brand" href="#">Trinlist</a>
     </div>
-
-      <div class="nav-collapse collapse navbar-responsive-collapse">
-        <ul class="nav pull-right">
-
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li id="nav_link" class="active"><a href="#">All</a></li>
+        <li id="nav_link"><a href="#about">Furniture</a></li>
+        <li id="nav_link"><a href="#contact">Electronics</a></li>
+        <li id="nav_link"><a href="#about">Clothes</a></li>
+        <li id="nav_link"><a href="#contact">Books</a></li>
+        <li id="nav_link"><a href="#about">Misc.</a></li>
+        <li id="nav_link"><a href="#about">Free</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %> <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Misc.</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Books</a></li>
+            <li><a href="#">Account Settings</a></li>
+            <li>            
+              <% if current_user.present? %>
+                <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %>
+              <%# user is not logged in, show signup and login links %>
+              <% else %>
+                <%= link_to 'Sign In', new_user_session_path %>
+                <%= link_to 'Register', new_user_registration_path %>
+              <% end %>
+            </li>
           </ul>
         </li>
-
-          <ul class="nav">
-            <% if current_user.present? %>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <%= current_user.email %> 
-                <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li class="nav-header">User controls</li>
-                <li><a href="#">Account Settings</a></li>
-                <li>            
-                  <% if current_user.present? %>
-                    <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %>
-                  <%# user is not logged in, show signup and login links %>
-                  <% else %>
-                    <%= link_to 'Sign In', new_user_session_path %> |
-                    <%= link_to 'Register', new_user_registration_path %>
-                  <% end %>
-                </li>
-              </ul>
-            </li>
-            <% else %>
-              <li><%= link_to 'Sign In', new_user_session_path %></li>
-              <% end %>
-          </ul>
-
-          <li class="divider-vertical"></li>
-        </ul>
-      </div><!-- /.nav-collapse -->
-    </div>
-  </div><!-- /navbar-inner -->
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
 </div>
-<%# user is logged in, show log out link %>
 
 <p class="notice"><%= notice %></p>
 
