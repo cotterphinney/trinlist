@@ -40,6 +40,24 @@
 #navbar_button:hover {
 	background-color: #ffd64c;
 }
+#nav_add_item {
+	margin-top: 6px;
+	margin-right: 20px;
+	color: black;
+}
+#nav_add_item a {
+	color: white;
+	border: 4px solid #ffd64c;
+	height: 32px;
+	line-height: 3px;
+	font-weight: 400;
+}
+#nav_add_item:hover {
+	background-color: #ffd64c;
+}
+#nav_add_item a:hover {
+	color: #0d528a;
+}
 .navbar-brand {
 	font-weight: 400;
 }
@@ -67,9 +85,12 @@
 	border-top-color: #ffd64c;
 	border-bottom-color: #ffd64c;
 }
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+	background-color: #463265;
+}
 
 td {
-	cursor: default;
+	cursor: pointer;
 }
 .list_item:hover {
 	background-color: #0d528a;
