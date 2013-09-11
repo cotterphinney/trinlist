@@ -1,19 +1,26 @@
-
+<% if @items.count > 0 %>
 	<table class="table">
 		<thead>
 			<tr>
-				<th>listing</th>
-				<th>description</th>
-				<th>price</th>
-				<th>time</th>
+				<th>Listing</th>
+				<th>Price</th>
+				<th>Time</th>
 			</tr>
 		</thead>
 		<% @items.each do |item| %>
 			<tr class="list_item" url="/items/<%= item.id %>">
-				<td><%= item.name %></td>
-				<td><%= item.description %></td>
-				<td><%= "$ #{item.price}" %></td>
+				<td class="name_td"><%= item.name %></td>
+				<td>
+					<% if item.price == 0 %>
+						Free
+					<% else %>
+						<%= "$ #{item.price}" %>
+					<% end %>
+				</td>
 				<td><%= time_ago_in_words(item.created_at)%> ago</td>
 			</tr>
 		<% end %>
 	</table>
+<% else %>
+	<div class="alert alert-info">No listings have been posted in this category yet. <%= link_to 'Add one yourself!', new_item_path %></div>
+<% end %>

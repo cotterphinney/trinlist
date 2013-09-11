@@ -25,6 +25,18 @@
     <%= f.label :price %><br />
     <%= f.text_field :price %>
   </div>
+  <div class="field">
+    <%= check_box_tag 'categories[]', 'furniture' %>
+    <%= label_tag(:furniture) %>
+    <%= check_box_tag 'categories[]', 'electronics' %>
+    <%= label_tag(:electronics) %>
+    <%= check_box_tag 'categories[]', 'clothes' %>
+    <%= label_tag(:clothes) %>
+    <%= check_box_tag 'categories[]', 'books' %>
+    <%= label_tag(:books) %>
+    <%= check_box_tag 'categories[]', 'misc' %>
+    <%= label_tag(:misc) %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

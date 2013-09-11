@@ -2,4 +2,7 @@
 
 <%= @item.name %><br>
 <%= @item.description %><br>
-$ <%= @item.price %>
+$ <%= @item.price %><br>
+<% if @item.categories %>
+	<%= @item.category_list %>
+<% end %>

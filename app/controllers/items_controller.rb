@@ -2,7 +2,13 @@ class ItemsController < ApplicationController
 	before_filter :authenticate_user!, :only => :new
 
 	def index
-		@items = Item.all(:order => "created_at DESC")
+		if (params[:category] == "free")
+			@items = Item.where("price == 0").order("created_at DESC")
+		elsif params[:category]
+			@items = Item.tagged_with(params[:category], :order => "created_at DESC")
+		else
+			@items = Item.all(:order => "created_at DESC")
+		end
 	end
 
 	def show
@@ -16,11 +22,13 @@ class ItemsController < ApplicationController
 	def create
 		@item = Item.new(item_params)
 		@item.user = current_user
+		@item.category_list = params[:categories]
+
 		if @item.save
-			flash[:success] = "Your item has been posted!"
-			redirect_to items_path
+			flash[:notice] = "Your item has been posted"
+			redirect_to root_path
 		else
-			render 'pages/index'
+			render "new"
 		end
 	end
 

@@ -20,13 +20,13 @@
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li class="nav_link active"><a href="#">All</a></li>
-        <li class="nav_link"><a href="#about">Furniture</a></li>
-        <li class="nav_link"><a href="#contact">Electronics</a></li>
-        <li class="nav_link"><a href="#about">Clothes</a></li>
-        <li class="nav_link"><a href="#contact">Books</a></li>
-        <li class="nav_link"><a href="#about">Misc.</a></li>
-        <li class="nav_link"><a href="#about">Free</a></li>
+        <li class="nav_link <%= 'active' if request.env['PATH_INFO'] == '/' %>"><%= link_to 'All', root_path %></li>
+        <li class="nav_link <%= 'active' if params[:category] == 'furniture' %>"><a href="/categories/furniture">Furniture</a></li>
+        <li class="nav_link <%= 'active' if params[:category] == 'electronics' %>"><a href="/categories/electronics">Electronics</a></li>
+        <li class="nav_link <%= 'active' if params[:category] == 'clothes' %>"><a href="/categories/clothes">Clothes</a></li>
+        <li class="nav_link <%= 'active' if params[:category] == 'books' %>"><a href="/categories/books">Books</a></li>
+        <li class="nav_link <%= 'active' if params[:category] == 'misc' %>"><a href="/categories/misc">Misc.</a></li>
+        <li class="nav_link <%= 'active' if params[:category] == 'free' %>"><a href="/categories/free">Free</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li id="nav_add_item"><%= link_to 'Add Listing', new_item_path %></li>
@@ -44,7 +44,7 @@
         </li>
         <% else %>
           <li class="nav_link"><%= link_to 'Sign In', new_user_session_path %></li>
-          <li class="nav_link"><%= link_to 'Register', new_user_registration_path %></li>
+          <li class="nav_link"><%= link_to 'Sign Up', new_user_registration_path %></li>
         <% end %>
       </ul>
     </div><!--/.nav-collapse -->
@@ -52,8 +52,8 @@
 </div>
 
 <div class="container">
-
-  <p class="notice"><%= notice %></p>
+  <% if notice %><div class="alert alert-info"><%= notice %></div><% end %>
+  <% if alert %><div class="alert alert-danger"><%= alert %></div><% end %>
   <%= yield %>
 </div>
 

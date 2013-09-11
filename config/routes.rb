@@ -1,4 +1,5 @@
 Trinlist::Application.routes.draw do
+  get 'categories/:category' => 'items#index', as: :category
   devise_for :users
   resources :pages
   resources :items
