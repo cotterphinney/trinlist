@@ -13,6 +13,24 @@
  *= require_tree .
  */
 
+body {
+	background: url("trinity_bgr_mini.jpg") no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+#main_table {
+	margin: 0 auto;
+}
+#table_wrapper {
+	padding: 20px;
+	background-color: #fff;
+	margin-bottom: 20px;
+}
+.container {
+	max-width: 950px;
+}
 .name_td {
 	width: 55%;
  }
