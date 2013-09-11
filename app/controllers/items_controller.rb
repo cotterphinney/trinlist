@@ -25,9 +25,10 @@ class ItemsController < ApplicationController
 		@item.category_list = params[:categories]
 
 		if @item.save
-			flash[:notice] = "Your item has been posted"
+			flash[:notice] = "Your listing has been posted"
 			redirect_to root_path
 		else
+			flash[:alert] = "There was a problem posting your listing"
 			render "new"
 		end
 	end

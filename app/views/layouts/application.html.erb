@@ -43,8 +43,8 @@
           </ul>
         </li>
         <% else %>
+          <li class="nav_link"><%= link_to 'Register', new_user_registration_path %></li>
           <li class="nav_link"><%= link_to 'Sign In', new_user_session_path %></li>
-          <li class="nav_link"><%= link_to 'Sign Up', new_user_registration_path %></li>
         <% end %>
       </ul>
     </div><!--/.nav-collapse -->
