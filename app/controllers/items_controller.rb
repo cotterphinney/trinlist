@@ -3,11 +3,11 @@ class ItemsController < ApplicationController
 
 	def index
 		if (params[:category] == "free")
-			@items = Item.where("price = 0").order("created_at DESC")
+			@items = Item.where("price = 0").order("created_at DESC").paginate(:page => params[:page], :per_page => 15)
 		elsif params[:category]
-			@items = Item.tagged_with(params[:category], :order => "created_at DESC")
+			@items = Item.tagged_with(params[:category], :order => "created_at DESC").paginate(:page => params[:page], :per_page => 15)
 		else
-			@items = Item.all(:order => "created_at DESC")
+			@items = Item.paginate(:page => params[:page], :per_page => 15).order("created_at DESC")
 		end
 	end
 

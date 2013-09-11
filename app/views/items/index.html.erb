@@ -1,5 +1,5 @@
 <% if @items.count > 0 %>
-	<div id="table_wrapper">
+	<div id="content_wrapper">
 		<table id="main_table" class="table">
 			<thead>
 				<tr>
@@ -24,7 +24,11 @@
 				</tr>
 			<% end %>
 		</table>
+		<div class="digg_pagination">
+			<%= will_paginate @items %>
+		</div>
 	</div>
+
 <% else %>
-	<div class="alert alert-info">No listings have been posted in this category yet. <%= link_to 'Add one yourself!', new_item_path %></div>
+	<div class="alert alert-success">No listings have been posted in this category yet. <%= link_to 'Add one yourself!', new_item_path %></div>
 <% end %>

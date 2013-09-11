@@ -42,6 +42,8 @@ gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
 
 gem 'acts-as-taggable-on'
 
+gem 'will_paginate', '~> 3.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
