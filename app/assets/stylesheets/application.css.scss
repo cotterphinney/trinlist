@@ -109,8 +109,7 @@ body {
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
 	background-color: #463265;
 }
-
-td {
+.list_item {
 	cursor: pointer;
 }
 .list_item:hover {
@@ -118,10 +117,18 @@ td {
 	color: #fff;
 }
 
+#my_listings_content_wrapper {
+	padding: 20px;
+	background-color: #fff;
+	margin-bottom: 20px;
+	max-width: 650px;
+	margin: 0 auto;
+}
+
 /********* alerts ***********/
 
 #gold_alert {
-	background-color: #ecf0f1;
+	background-color: #ffd64c;
 	border: 0;
 	color: #606060;
 }

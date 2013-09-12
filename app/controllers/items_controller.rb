@@ -15,6 +15,14 @@ class ItemsController < ApplicationController
 		@item = Item.find(params[:id])
 	end
 
+	def my_listings
+		@items = Item.where(user_id: current_user).paginate(:page => params[:page], :per_page => 15).order("created_at DESC")
+	end
+
+	def edit
+		@item = Item.find(params[:id])
+	end
+
 	def new
 		@item = Item.new
 	end
@@ -32,6 +40,16 @@ class ItemsController < ApplicationController
 			render "new"
 		end
 	end
+
+	def destroy
+		@item = Item.find(params[:id])
+		@item.destroy
+
+		respond_to do |format| 
+			format.html { redirect_to listings_path } 
+			format.xml { head :ok } 
+		end
+  	end
 
 	def item_params
 		params.require(:item).permit(:name, :description, :price)

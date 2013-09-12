@@ -2,7 +2,9 @@ Trinlist::Application.routes.draw do
   get 'categories/:category' => 'items#index', as: :category
   devise_for :users
   resources :pages
-  resources :items
+  resources :items, except: :edit
+  get '/listings' => 'items#my_listings'
+  get '/listings/edit/:id' => 'items#edit'
 
   root :to => "items#index"
   # The priority is based upon order of creation: first created -> highest priority.
