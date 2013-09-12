@@ -16,11 +16,11 @@
 						<% if item.price == 0 %>
 							Free
 						<% else %>
-							<%= "$ #{item.price}" %>
+							<%= "$#{item.price}" %>
 						<% end %>
 					</td>
 					<td>Hansen</td>
-					<td><%= time_ago_in_words(item.created_at)%> ago</td>
+					<td><%= time_ago_in_words(item.created_at).gsub('about','') %> ago</td>
 				</tr>
 			<% end %>
 		</table>
@@ -30,5 +30,5 @@
 	</div>
 
 <% else %>
-	<div class="alert alert-success">No listings have been posted in this category yet. <%= link_to 'Add one yourself!', new_item_path %></div>
+	<div id="gold_alert" class="alert alert-success">No listings have been posted in this category yet. <%= link_to 'Add one yourself!', new_item_path %></div>
 <% end %>

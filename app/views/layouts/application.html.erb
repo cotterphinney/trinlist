@@ -52,8 +52,8 @@
 </div>
 
 <div class="container">
-  <% if notice %><div class="alert alert-warning"><%= notice %></div><% end %>
-  <% if alert %><div class="alert alert-danger"><%= alert %></div><% end %>
+  <% if notice %><div id="neutral_alert" class="alert alert-warning"><%= notice %></div><% end %>
+  <% if alert %><div id="red_alert" class="alert alert-danger"><%= alert %></div><% end %>
   <%= yield %>
 </div>
 
