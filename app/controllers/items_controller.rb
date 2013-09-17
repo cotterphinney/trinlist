@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-	before_filter :authenticate_user!, :only => :new
+	before_filter :authenticate_user!, :only => [:new, :edit]
 
 	def index
 		if (params[:category] == "free")
@@ -21,6 +21,21 @@ class ItemsController < ApplicationController
 
 	def edit
 		@item = Item.find(params[:id])
+		unless (@item.user == current_user)
+			flash[:alert] = "You don't have access there"
+			redirect_to root_path
+		end
+	end
+
+	def update
+	  @item = Item.find(params[:id])
+	 
+	  if @item.update(item_params)
+	  	flash[:notice] = "Your listing has been updated"
+	    redirect_to @item
+	  else
+	    render 'edit'
+	  end
 	end
 
 	def new
@@ -36,7 +51,6 @@ class ItemsController < ApplicationController
 			flash[:notice] = "Your listing has been posted"
 			redirect_to root_path
 		else
-			flash[:alert] = "There was a problem posting your listing"
 			render "new"
 		end
 	end

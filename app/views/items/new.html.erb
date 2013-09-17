@@ -1,43 +1,55 @@
-<h2>new</h2>
 
- <%= form_for(@item) do |f| %>
-  <% if @item.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
+<% if @item.errors.any? %>
+  <div id="red_alert" class="alert alert-danger center_text">
+    <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
 
-      <ul>
-      <% @item.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :price %><br />
-    <%= f.text_field :price %>
-  </div>
-  <div class="field">
-    <%= check_box_tag 'categories[]', 'furniture' %>
-    <%= label_tag(:furniture) %>
-    <%= check_box_tag 'categories[]', 'electronics' %>
-    <%= label_tag(:electronics) %>
-    <%= check_box_tag 'categories[]', 'clothes' %>
-    <%= label_tag(:clothes) %>
-    <%= check_box_tag 'categories[]', 'books' %>
-    <%= label_tag(:books) %>
-    <%= check_box_tag 'categories[]', 'misc' %>
-    <%= label_tag(:misc) %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+    <ul>
+    <% @item.errors.full_messages.each do |msg| %>
+      <li class="no_bullet"><%= msg %></li>
+    <% end %>
+    </ul>
   </div>
 <% end %>
+
+<div id="listing_wrapper" class="container">
+  <h2>New Listing</h2>
+
+   <%= form_for(@item) do |f| %>
+
+    <div class="row">
+      <div class="col-sm-9">
+        <div class="field">
+          <label for="item_name">Name</label><br />
+          <input class="form-control" id="item_name" name="item[name]" type="text" />
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <label for="item_price">Price</label><br />
+        <div id="price_wrapper" class="input-group">
+          <span class="input-group-addon">$</span>
+          <input class="form-control" id="item_price" name="item[price]" type="text" placeholder="0.00" />
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <%= f.label :description %><br />
+      <%= f.text_area :description, :class => "form-control" %>
+    </div>
+    <div id="categories_wrapper" class="field">
+      <%= f.label :categories %><br />
+      <%= check_box_tag 'categories[]', 'furniture' %>
+      <%= label_tag(:furniture) %>
+      <%= check_box_tag 'categories[]', 'electronics' %>
+      <%= label_tag(:electronics) %>
+      <%= check_box_tag 'categories[]', 'clothes' %>
+      <%= label_tag(:clothes) %>
+      <%= check_box_tag 'categories[]', 'books' %>
+      <%= label_tag(:books) %>
+      <%= check_box_tag 'categories[]', 'misc' %>
+      <%= label_tag(:misc) %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Add your listing!", :id => "submit_button", :class => "btn btn-lg btn-primary btn-block" %>
+    </div>
+  <% end %>
+</div>

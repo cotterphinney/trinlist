@@ -149,3 +149,66 @@ a {
 a:hover {
 	color: #0d528a;
 }
+
+/*********** edit page ***********/
+
+#edit_wrapper {
+	max-width: 500px;
+	background-color: #fff;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+#delete_button {
+	border: 0;
+	max-width: 150px;
+	margin-top: 15px;
+	background-color: #e74c3c;
+}
+#delete_button:hover {
+	background-color: #c0392b;
+}
+#submit_button {
+	border: 0;
+	margin-top: 15px;
+	background-color: #2ecc71;
+}
+#submit_button:hover {
+	background-color: #27ae60;
+}
+
+/************ sign in **************/
+
+#sign_in_wrapper {
+	max-width: 400px;
+	background-color: #fff;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+#sign_in_button {
+	border: 0;
+	background-color: #2ecc71;
+}
+#sign_in_button:hover {
+	background-color: #27ae60;
+}
+
+/*********** new listing **************/
+
+#listing_wrapper {
+	max-width: 500px;
+	background-color: #fff;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+#price_wrapper {
+
+}
+.center_text {
+	text-align: center;
+}
+#categories_wrapper {
+	margin-top: 10px;
+}
+.no_bullet {
+	list-style-type: none;
+}
