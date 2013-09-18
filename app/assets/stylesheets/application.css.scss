@@ -13,12 +13,19 @@
  *= require_tree .
  */
 
+$grid-float-breakpoint: 0;
+
+@import "twitter/bootstrap";
+
 body {
 	background: image-url("trinity_bgr_mini.jpg") no-repeat center center fixed; 
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+}
+#navbar_container {
+	padding: 0 20px;
 }
 #main_table {
 	margin: 0 auto;
@@ -34,11 +41,6 @@ body {
 .name_td {
 	width: 55%;
  }
-
-#search_form {
-	width: 300px;
-	margin-left: 30px;
-}
 #navbar {
 	background-color: #0d528a;
 	font-weight: 300;
@@ -158,14 +160,9 @@ a:hover {
 	padding: 20px;
 	margin-bottom: 20px;
 }
-#delete_button {
-	border: 0;
-	max-width: 150px;
-	margin-top: 15px;
-	background-color: #e74c3c;
-}
-#delete_button:hover {
-	background-color: #c0392b;
+#delete_link {
+	margin-top: 10px;
+	display: block;
 }
 #submit_button {
 	border: 0;
@@ -211,4 +208,48 @@ a:hover {
 }
 .no_bullet {
 	list-style-type: none;
+}
+
+/************** show listing **************/
+
+#back_button {
+	text-align: left;
+	margin: 0;
+	color: #0d528a;
+}
+#back_button a {
+	color: #0d528a;
+}
+.listing_title {
+	border-bottom: 1px solid #bdc3c7;
+}
+#show_listing_wrapper {
+	max-width: 700px;
+	background-color: #fff;
+	padding: 20px;
+	margin-bottom: 20px;
+	font-size: 16px;
+}
+#listing_body {
+	margin-top: 20px;
+}
+.listing_img {
+	float: left;
+	margin-right: 20px;
+}
+#listing_table {
+	margin-top: 20px;
+}
+#listing_table td {
+	border: 0;
+}
+#listings_count {
+	font-weight: 200;
+}
+
+#sign_in_button {
+	background-color: #e74c3c;
+}
+#sign_in_button:hover {
+	background-color: #c0392b;
 }

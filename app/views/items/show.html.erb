@@ -1,8 +1,40 @@
-<h2>show</h2>
+<div id="show_listing_wrapper" class="container">
+	<%= link_to "← Back", :back %>
+	<div class="row">
+		<div class="col-md-12 listing_title">
+			<h2><%= @item.name %></h2>
+		</div>
+	</div>
+	<div id="listing_body" class="row">
+		<div class="col-sm-12">
+			<%= image_tag('placeholder.png', :class => "listing_img") %>
+			<b>Description: </b><%= @item.description %><br>
+		</div>
+	</div>
+	<table id="listing_table" class="table">
+		<tbody>
+			<tr>
+				<td><b>Location:</b> Hansen</td>
+				<td><b>Posted: </b><%= time_ago_in_words(@item.created_at).gsub('about','') %> ago</td>
+				<td><b>Price:</b>
+					<% if @item.price == 0 %>
+						Free
+					<% else %>
+						<%= "$#{@item.price}" %>
+					<% end %>
+				</td>
+			</tr>
+		</tbody>
+	</table>
 
-<%= @item.name %><br>
-<%= @item.description %><br>
-$ <%= @item.price %><br>
-<% if @item.categories %>
-	<%= @item.category_list %>
-<% end %>
+	<div class="row">
+		<% if current_user.present? %>
+		<div class="col-sm-12">
+			For more information, contact <%= link_to @seller.email, "mailto:#{@seller.email}??subject=re:%20#{@item.name.gsub( /\s/,'%20')}" %>
+		</div>
+		<% else %>
+		<%= link_to 'Register a free account to contact the seller', new_user_registration_path, :id => "sign_in_button", :class => "btn btn-lg btn-primary btn-block" %>
+		<% end %>
+	</div>
+
+</div>
