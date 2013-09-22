@@ -19,7 +19,7 @@
 							<%= "$#{item.price}" %>
 						<% end %>
 					</td>
-					<td>Hansen</td>
+					<td><%= item.location %></td>
 					<td><%= time_ago_in_words(item.created_at).gsub('about','') %> ago</td>				</tr>
 			<% end %>
 		</table>

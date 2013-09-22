@@ -16,11 +16,21 @@
 
    <%= form_for(@item) do |f| %>
 
+   <div class="field">
+      <%= f.label :title %><br />
+      <%= f.text_field :name, :class => "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :description %><br />
+      <%= f.text_area :description, :class => "form-control" %>
+    </div>
+
     <div class="row">
       <div class="col-md-9 col-xs-8">
         <div class="field">
-          <label for="item_name">Name</label><br />
-          <input class="form-control" id="item_name" name="item[name]" type="text" />
+          <label for="item_location">Location</label><br />
+          <input class="form-control" id="item_location" name="item[location]" type="text" placeholder="e.g. Hansen, Jarvis, Crescent" />
         </div>
       </div>
       <div class="col-md-3 col-xs-4">
@@ -31,10 +41,7 @@
         </div>
       </div>
     </div>
-    <div class="field">
-      <%= f.label :description %><br />
-      <%= f.text_area :description, :class => "form-control" %>
-    </div>
+
     <div id="categories_wrapper" class="field">
       <%= f.label :categories %><br />
       <%= check_box_tag 'categories[]', 'furniture' %>
