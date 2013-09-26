@@ -16,4 +16,4 @@
 /tmp
 .env
 
-config/environment.rb
+/config/initializers/app_env_vars.rb
