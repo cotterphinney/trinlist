@@ -22,8 +22,15 @@
 							<%= "$#{item.price}" %>
 						<% end %>
 					</td>
-					<td><%= item.location %></td>
-					<td><%= time_ago_in_words(item.created_at).gsub('about','') %> ago</td>				</tr>
+					<td>
+						<% if current_user.present? %>
+							<%= item.location %>
+						<% else %>
+							<% location = item.location.try(:split, '') || 'something'.split('') %>
+							<% location.map! {|c| "█"} %><%= location.join %>
+						<% end %>
+					</td>
+					<td id="time_td"><%= time_ago_in_words(item.created_at).gsub('about','') %> ago</td>				</tr>
 			<% end %>
 		</table>
 		<div class="digg_pagination">

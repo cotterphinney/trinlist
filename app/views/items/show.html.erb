@@ -16,7 +16,14 @@
 	<table id="listing_table" class="table">
 		<tbody>
 			<tr>
-				<td><b>Location:</b> <%= @item.location %></td>
+				<td><b>Location:</b>
+				<% if current_user.present? %>
+					<%= @item.location %></td>
+				<% else %>
+					<% location = @item.location.try(:split, '') || 'something'.split('') %>
+					<% location.map! {|c| "█"} %>
+					<%= location.join %>
+				<% end %>
 				<td><b>Posted: </b><%= time_ago_in_words(@item.created_at).gsub('about','') %> ago</td>
 				<td><b>Price:</b>
 					<% if @item.price == 0 %>
