@@ -11,7 +11,9 @@
 		<% @items.each do |item| %>
 			<tr>
 				<td><%= item.name %></td>
-				<td><%= link_to 'Edit', {:controller => 'items', :action => 'edit', :id => item.id} %></td>
+				<td>
+					<%= link_to 'View', item %> | 
+					<%= link_to 'Edit', {:controller => 'items', :action => 'edit', :id => item.id} %></td>
 			</tr>
 		<% end %>
 		</tbody>

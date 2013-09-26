@@ -1,6 +1,8 @@
-
-  <div id="edit_wrapper" class="container">
+<div id="edit_wrapper" class="container">
   <% provide(:title, "Edit listing") %>
+
+  <%= link_to "← Back", :back %>
+
   <h1>Edit your listing</h1>
 
   <%= form_for(@item, :html => {:class=> "form-signin"}) do |f| %>

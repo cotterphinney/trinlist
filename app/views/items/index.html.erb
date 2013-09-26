@@ -1,5 +1,8 @@
 <% if @items.count > 0 %>
 	<div id="content_wrapper">
+		<div id="pagination_top" class="digg_pagination">
+			<%= will_paginate @items %>
+		</div>
 		<table id="main_table" class="table">
 			<thead>
 				<tr>

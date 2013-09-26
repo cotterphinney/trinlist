@@ -20,7 +20,7 @@
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li class="nav_link <%= 'active' if request.env['PATH_INFO'] == '/' %>"><%= link_to 'All', root_path %></li>
+        <li class="nav_link <%= 'active' if (request.env['PATH_INFO'] == '/') || (request.env['PATH_INFO'] == '/items') %>"><%= link_to 'All', root_path %></li>
         <li class="nav_link <%= 'active' if params[:category] == 'furniture' %>"><a href="/categories/furniture">Furniture</a></li>
         <li class="nav_link <%= 'active' if params[:category] == 'electronics' %>"><a href="/categories/electronics">Electronics</a></li>
         <li class="nav_link <%= 'active' if params[:category] == 'clothes' %>"><a href="/categories/clothes">Clothes</a></li>
@@ -61,8 +61,8 @@
 </div>
 
 <div class="container">
-  <% if notice %><div id="neutral_alert" class="alert alert-warning"><%= notice %></div><% end %>
-  <% if alert %><div id="red_alert" class="alert alert-danger"><%= alert %></div><% end %>
+  <% if notice %><div class="alert alert-info"><b><%= notice %></b></div><% end %>
+  <% if alert %><div class="alert alert-danger"><b><%= alert %></b></div><% end %>
   <%= yield %>
 </div>
 

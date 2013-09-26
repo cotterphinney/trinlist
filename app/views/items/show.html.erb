@@ -6,9 +6,11 @@
 		</div>
 	</div>
 	<div id="listing_body" class="row">
-		<div class="col-sm-12">
-			<%= image_tag('placeholder.png', :class => "listing_img") %>
-			<b>Description: </b><%= @item.description %><br>
+		<div id="listing_body_inner" class="col-sm-12">
+			<%= link_to @item.image.url(:large), :class => "zoom" do %>
+				<%= image_tag(@item.image.url(:resized), :class => "listing_img", :alt => "Small image") if @item.image? %>
+			<% end %>
+			<%= @item.description %><br>
 		</div>
 	</div>
 	<table id="listing_table" class="table">
@@ -30,11 +32,13 @@
 	<div class="row">
 		<% if current_user.present? %>
 		<div class="col-sm-12">
-			<b>For more information, contact: <%= link_to @seller.email, "mailto:#{@seller.email}??subject=re:#{@item.name.gsub( /\s/,'%20')}", :class => "btn btn-success" %></b>
+			For more information, contact <b><%= @seller.email %></b>
 		</div>
 		<% else %>
-		<%= link_to 'Register a free account to contact the seller', new_user_registration_path, :id => "sign_in_button", :class => "btn btn-lg btn-primary btn-block" %>
-		<% end %>
+			<div id="register_account_button_wrapper">
+			<%= link_to 'Register a free account to contact this seller', new_user_registration_path, :id => "register_account_button", :class => "btn btn-lg btn-primary btn-block" %>
+			<% end %>
+			</div>
 	</div>
 
 </div>
