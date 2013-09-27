@@ -11,7 +11,7 @@ class Item < ActiveRecord::Base
 		:url => ":s3_domain_url", 
 		:path => "/:class/:attachment/:id_partition/:style/:filename"
 	validates_attachment :image, 
-		:size => { :in => 0..3.megabytes }
+		:size => { :in => 0..3.megabytes },
 		:content_type => /^image\/(png|gif|jpeg)/
 
 	def between_one_and_three_categories?
