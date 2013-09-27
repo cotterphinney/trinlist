@@ -1,8 +1,8 @@
 class Item < ActiveRecord::Base
 	validates_presence_of :name, :description, :location, :price
 	validates_length_of :name, :maximum => 120
-	validate :between_one_and_three_categories?
-	validate :image_is_less_than_three_megabytes
+	validate :between_one_and_three_categories?,
+		:image_is_less_than_three_megabytes
 
 	belongs_to :user
 	acts_as_taggable
@@ -12,7 +12,7 @@ class Item < ActiveRecord::Base
 		:url => ":s3_domain_url", 
 		:path => "/:class/:attachment/:id_partition/:style/:filename"
 	validates_attachment_content_type :image, :content_type => ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'],
-		:message => "You may only upload jpeg, gif or png files."
+		:message => "must be a jpeg, gif or png file."
 
 	def image_is_less_than_three_megabytes
     if self.image?
