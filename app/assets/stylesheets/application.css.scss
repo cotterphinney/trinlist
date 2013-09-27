@@ -249,6 +249,11 @@ a:hover {
 	margin: 0;
 	color: #0d528a;
 }
+#edit_button {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+}
 #back_button a {
 	color: #0d528a;
 }
@@ -261,6 +266,7 @@ a:hover {
 	padding: 20px;
 	margin-bottom: 20px;
 	font-size: 16px;
+	position: relative;
 }
 #listing_body {
 	margin-top: 20px;

@@ -1,5 +1,8 @@
 <div id="show_listing_wrapper" class="container">
 	<%= link_to "← Back", :back %>
+	<% if current_user == @item.user %>
+		<%= link_to 'Edit listing', {:controller => 'items', :action => 'edit', :id => @item}, :id => "edit_button", :class => "btn btn-primary" %>
+	<% end %>
 	<div class="row">
 		<div class="col-md-12 listing_title">
 			<h2><%= @item.name %></h2>

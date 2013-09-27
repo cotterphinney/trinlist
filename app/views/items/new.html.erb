@@ -13,6 +13,7 @@
 
 <div id="listing_wrapper" class="container">
   <h2>New Listing</h2>
+  Listings automatically expire after 15 days. Give your listing a price of $0 to add it to the "free" category.<br><br>
 
    <%= form_for(@item) do |f| %>
 
@@ -43,7 +44,7 @@
     </div>
 
     <div class="image_upload_button">
-      <%= f.label "Add image" %>
+      <%= f.label "Add image" %> (optional)
       <%= f.file_field :image, :class => "" %>
     </div>
 
