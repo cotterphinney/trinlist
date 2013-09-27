@@ -17,7 +17,7 @@ class Item < ActiveRecord::Base
 	def image_is_less_than_three_megabytes
     if self.image?
       if self.image.size > 3.megabytes
-        errors.add(:image, "Image must be less than 3 megabytes in size")
+        errors.add(:image, "must be less than 3 megabytes in size")
       end
     end
   end
