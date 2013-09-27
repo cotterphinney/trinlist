@@ -1,6 +1,7 @@
 class Item < ActiveRecord::Base
 	validates_presence_of :name, :description, :location, :price
 	validates_length_of :name, :maximum => 120
+	validates_attachment :image, :size => { :in => 0..3.megabytes }
 	validate :between_one_and_three_categories?
 
 	belongs_to :user
