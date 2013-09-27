@@ -7,7 +7,7 @@ class Item < ActiveRecord::Base
 	acts_as_taggable
 	acts_as_taggable_on :categories
 
-	has_attached_file :image, :styles => { :resized => "250x250>", :large => "600x600>" }, :url => ":s3_domain_url", :path => "trinlist-assets"
+	has_attached_file :image, :styles => { :resized => "250x250>", :large => "600x600>" }, :url => ":s3_domain_url", :path => "/:class/:attachment/:id_partition/:style/:filename"
 
 	def between_one_and_three_categories?
 		if ((self.category_list.length == 0) || (self.category_list.length > 3))
