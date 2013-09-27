@@ -17,6 +17,10 @@ $grid-float-breakpoint: 0;
 
 @import "twitter/bootstrap";
 
+a#barometer_tab {
+	background-color: #0d528a;
+}
+
 body {
 	background: image-url("trinity_bgr_mini.jpg") no-repeat center center fixed; 
 	-webkit-background-size: cover;
