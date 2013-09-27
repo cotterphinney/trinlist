@@ -7,8 +7,8 @@
 	</div>
 	<div id="listing_body" class="row">
 		<div id="listing_body_inner" class="col-sm-12">
-			<%= link_to @item.image.url(:large), :class => "zoom" do %>
-				<%= image_tag(@item.image.url, :class => "listing_img", :alt => "Small image") if @item.image? %>
+			<%= link_to @item.image.url(:original), :class => "zoom" do %>
+				<%= image_tag(@item.image.url(:resized), :class => "listing_img", :alt => "Small image") if @item.image? %>
 			<% end %>
 			<%= @item.description %><br>
 		</div>
