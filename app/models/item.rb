@@ -10,9 +10,8 @@ class Item < ActiveRecord::Base
 	has_attached_file :image, :styles => { :resized => "250x250>", :large => "600x600>" }, 
 		:url => ":s3_domain_url", 
 		:path => "/:class/:attachment/:id_partition/:style/:filename"
-	validates_attachment :image, 
-		:size => { :in => 0..3.megabytes },
-		:content_type => /^image\/(png|gif|jpeg)/
+	validates_attachment :image, :size => { :in => 0..3.megabytes },
+		:content_type => "image/jpg"
 
 	def between_one_and_three_categories?
 		if ((self.category_list.length == 0) || (self.category_list.length > 3))
