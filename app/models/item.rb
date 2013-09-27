@@ -10,7 +10,8 @@ class Item < ActiveRecord::Base
 	has_attached_file :image, :styles => { :resized => "250x250>", :large => "600x600>" }, 
 		:url => ":s3_domain_url", 
 		:path => "/:class/:attachment/:id_partition/:style/:filename"
-	validates_attachment_content_type :image, :content_type => /image/
+	validates_attachment_content_type :image, :content_type => ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'],
+		:message => "You may only upload jpeg, gif or png files."
 	validates_attachment_file_size :image, :size => { :in => 0..3.megabytes }
 
 	def between_one_and_three_categories?
