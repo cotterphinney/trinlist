@@ -8,7 +8,7 @@ class Item < ActiveRecord::Base
 	acts_as_taggable
 	acts_as_taggable_on :categories
 
-	has_attached_file :image, :styles => { :resized => "250x250>", :large => "600x600>" }, 
+	has_attached_file :image, :styles => { :resized => "250x250>", :original => "600x600>" }, 
 		:url => ":s3_domain_url", 
 		:path => "/:class/:attachment/:id_partition/:style/:filename"
 	validates_attachment_content_type :image, :content_type => ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'],
