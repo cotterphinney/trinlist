@@ -13,6 +13,7 @@ class Item < ActiveRecord::Base
 	validates_attachment_content_type :image, :content_type => ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'],
 		:message => "You may only upload jpeg, gif or png files."
 	validates_attachment_size :image, :less_than => 3.megabytes
+		:message => "Your image must be less than 3 megabytes."
 
 	def between_one_and_three_categories?
 		if ((self.category_list.length == 0) || (self.category_list.length > 3))
