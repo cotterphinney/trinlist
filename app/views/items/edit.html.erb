@@ -13,10 +13,35 @@
     <div><%= f.label :description %><br />
     <%= f.text_area :description, :class=> "form-control" %></div>
 
-    <div><%= f.label :price %><br />
-    <%= f.text_field :price, :class=> "form-control" %></div>
+    <div class="row">
+      <div class="col-md-9 col-xs-8">
+        <div class="field">
+          <label for="item_location">Location</label><br />
+          <%= f.text_field :location, :class=> "form-control" %>
+        </div>
+      </div>
+      <div class="col-md-3 col-xs-4">
+        <label for="item_price">Price</label><br />
+        <div id="price_wrapper" class="input-group">
+          <span class="input-group-addon">$</span>
+          <%= f.text_field :price, :class=>"form-control" %>
+        </div>
+      </div>
+    </div>
 
-    <div><%=link_to "Delete this listing", item_path(@item.id), :method => :delete, :confirm => "Are you sure you want to delete this listing?", :id => "delete_link" %></div>
+    <div id="categories_wrapper" class="field">
+      <%= f.label :categories %><br />
+      <%= check_box_tag 'categories[]', 'furniture', @item.category_list.include?("furniture") ? true : false %>
+      <%= label_tag(:furniture) %>
+      <%= check_box_tag 'categories[]', 'electronics', @item.category_list.include?("electronics") ? true : false %>
+      <%= label_tag(:electronics) %>
+      <%= check_box_tag 'categories[]', 'clothes', @item.category_list.include?("clothes") ? true : false %>
+      <%= label_tag(:clothes) %>
+      <%= check_box_tag 'categories[]', 'books', @item.category_list.include?("books") ? true : false %>
+      <%= label_tag(:books) %>
+      <%= check_box_tag 'categories[]', 'misc', @item.category_list.include?("misc") ? true : false %>
+      <%= label_tag(:misc) %>
+    </div>
 
     <div><%= f.submit "Save changes", :id => "submit_button", :class => "btn btn-lg btn-primary btn-block" %></div>
   <% end %>

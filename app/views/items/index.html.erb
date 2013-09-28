@@ -14,7 +14,7 @@
 			</thead>
 			<% @items.each do |item| %>
 				<tr class="list_item" url="/items/<%= item.id %>">
-					<td class="name_td"><%= item.name %></td>
+					<td class="name_td"><% if current_user == item.user %><span class="current_user_listing">• </span><% end %><%= item.name %></td>
 					<td>
 						<% if item.price == 0 %>
 							Free

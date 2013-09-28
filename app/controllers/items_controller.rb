@@ -30,6 +30,7 @@ class ItemsController < ApplicationController
 
 	def update
 	  @item = Item.find(params[:id])
+	  @item.category_list = params[:categories]
 	 
 	  if @item.update(item_params)
 	  	flash[:notice] = "Your listing has been updated"
