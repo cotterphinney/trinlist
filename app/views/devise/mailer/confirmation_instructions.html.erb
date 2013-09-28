@@ -1,7 +1,9 @@
 <div id="sign_in_wrapper" class="container">	
-	<p>Welcome <%= @email %>!</p>
+	<p>Welcome to Trinlist!</p>
 
-	<p>You can confirm your account email through the link below:</p>
+	<p>Trinlist is a website where Trinity students can buy and sell stuff.</p>
+
+	<p>Confirm your account email through the link below to get started:</p>
 
 	<p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
 </div>
