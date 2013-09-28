@@ -1,21 +1,25 @@
 <div id="my_listings_content_wrapper">
-	<h2>My Listings</h2>
-	<table id="my_listings_table" class="table">
-		<thead>
-			<tr>
-				<th>Name</th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-		<% @items.each do |item| %>
-			<tr>
-				<td><%= item.name %></td>
-				<td>
-					<%= link_to 'View', item %> | 
-					<%= link_to 'Edit', {:controller => 'items', :action => 'edit', :id => item.id} %></td>
-			</tr>
-		<% end %>
-		</tbody>
-	</table>
+	<% if current_user.items.any? %>
+		<h2>My Listings</h2>
+		<table id="my_listings_table" class="table">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+			<% @items.each do |item| %>
+				<tr>
+					<td><%= item.name %></td>
+					<td>
+						<%= link_to 'View', item %> | 
+						<%= link_to 'Edit', {:controller => 'items', :action => 'edit', :id => item.id} %></td>
+				</tr>
+			<% end %>
+			</tbody>
+		</table>
+	<% else %>
+		You haven't posted any listings yet. <%= link_to 'Post one now!', new_item_path %>
+	<% end %>
 </div>
