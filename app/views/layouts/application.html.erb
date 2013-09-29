@@ -73,5 +73,7 @@
   <%= yield %>
 </div>
 
+<%= render :partial => 'shared/ga’ if RAILS_ENV == ‘production’ %>
+
 </body>
 </html>
