@@ -6,6 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-coop = User.new(:email => ENV["COOP_EMAIL"], :password => ENV["COOP_PASSWORD"])
+coop = User.new(email: ENV['COOP_EMAIL'], password: ENV['COOP_PASSWORD'], password_confirmation: ENV['COOP_PASSWORD'])
 coop.skip_confirmation!
 coop.save!
