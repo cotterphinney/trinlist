@@ -13,9 +13,19 @@
  *= require_tree .
  */
 
-$grid-float-breakpoint: 0;
+#barometer_overlay #barometer_main #overlay_header {
+	height: 40px;
+	background-color: #0d528a;
+	border-bottom: 0;
+}
+#contact_header {
+	font-size: 22px;
+	color: #fff;
+	font-weight: 100;
+	margin-left: 10px;
+}
 
-@import "twitter/bootstrap";
+$grid-float-breakpoint: 0;
 
 a#barometer_tab {
 	background-color: #0d528a;
@@ -31,6 +41,10 @@ a#barometer_tab {
 
 .current_user_listing {
 	color: #0d528a;
+}
+
+#barometer_iframe {
+	font-size: 20px;
 }
 
 body {

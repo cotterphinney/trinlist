@@ -32,7 +32,7 @@
 					<% if @item.price == 0 %>
 						Free
 					<% else %>
-						<%= "$#{@item.price}" %>
+						<%= number_to_currency(@item.price) %>
 					<% end %>
 				</td>
 			</tr>
@@ -40,10 +40,14 @@
 	</table>
 
 	<div class="row">
-		<% if current_user.present? %>
+		<% if current_user.present? && @item.user_id == @coop.id %>
 		<div class="col-sm-12">
-			For more information, contact <b><%= @seller.email %></b>
+			<b>This item is available at The Coop. The Coop is located at the bottom of Jackson Hall, facing LSC.</b>
 		</div>
+		<% elsif current_user.present? %>
+			<div class="col-sm-12">
+				For more information, contact <b><%= @seller.email %></b>
+			</div>
 		<% else %>
 			<div id="register_account_button_wrapper">
 			<%= link_to 'Register a free account to contact this seller', new_user_registration_path, :id => "register_account_button", :class => "btn btn-lg btn-primary btn-block" %>

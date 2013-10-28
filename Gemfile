@@ -8,7 +8,7 @@ group :development, :test do
 end
 
 group :production do
-	gem 'pg', '~> 0.15.1'
+	gem 'mysql2'
 end
 
 # Use SCSS for stylesheets
@@ -36,9 +36,7 @@ end
 
 gem 'devise'
 
-gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
-                              :github => 'anjlab/bootstrap-rails',
-                              :branch => '3.0.0'
+gem 'anjlab-bootstrap-rails', '~> 3.0.0.3', :require => 'bootstrap-rails'
 
 gem 'acts-as-taggable-on'
 
@@ -52,14 +50,8 @@ gem 'aws-sdk'
 
 gem 'newrelic_rpm'
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+# environment variables
+gem 'figaro'
 
-# Use unicorn as the app server
-# gem 'unicorn'
+# cron jobs
 
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]

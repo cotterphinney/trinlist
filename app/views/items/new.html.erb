@@ -2,7 +2,6 @@
 <% if @item.errors.any? %>
   <div id="red_alert" class="alert alert-danger center_text">
     <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
-
     <ul>
     <% @item.errors.full_messages.each do |msg| %>
       <li class="no_bullet"><%= msg %></li>
@@ -31,14 +30,14 @@
       <div class="col-md-9 col-xs-8">
         <div class="field">
           <label for="item_location">Location</label>*<br />
-          <input class="form-control" id="item_location" name="item[location]" type="text" placeholder="e.g. Hansen, Jarvis, Crescent St." />
+          <%= f.text_field :location, :class => "form-control", :id => "item_location", :placeholder => "e.g. Hansen, Jarvis, Crescent St." %>
         </div>
       </div>
       <div class="col-md-3 col-xs-4">
         <label for="item_price">Price</label>*<br />
         <div id="price_wrapper" class="input-group">
           <span class="input-group-addon">$</span>
-          <input class="form-control" id="item_price" name="item[price]" type="text" placeholder="0.00" />
+          <%= f.text_field :price, :class => "form-control", :id => "item_price", :placeholder => "0.00" %>
         </div>
       </div>
     </div>

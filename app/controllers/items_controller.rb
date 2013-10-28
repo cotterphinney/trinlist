@@ -14,6 +14,7 @@ class ItemsController < ApplicationController
 	def show
 		@item = Item.find(params[:id])
 		@seller = User.find(@item.user_id)
+		@coop = User.find(22)
 	end
 
 	def my_listings
