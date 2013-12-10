@@ -162,7 +162,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on
-  anjlab-bootstrap-rails (~> 3.0.0.3)
+  anjlab-bootstrap-rails
   aws-sdk
   capistrano
   coffee-rails (~> 4.0.0)

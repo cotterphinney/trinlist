@@ -37,7 +37,7 @@ end
 
 gem 'devise'
 
-gem 'anjlab-bootstrap-rails', '~> 3.0.0.3', :require => 'bootstrap-rails'
+gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails'
 
 gem 'acts-as-taggable-on'
 

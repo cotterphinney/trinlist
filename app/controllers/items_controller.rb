@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
 		elsif params[:category]
 			@items = Item.tagged_with(params[:category], :order => "created_at DESC").paginate(:page => params[:page], :per_page => 15)
 		else
-			@items = Item.paginate(:page => params[:page], :per_page => 15).order("created_at DESC")
+			@items = Item.tagged_with("books", :order => "created_at DESC").paginate(:page => params[:page], :per_page => 15).order("created_at DESC")
 		end
 	end
 
